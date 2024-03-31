@@ -4,11 +4,13 @@ namespace App\Exports;
 
 use App\Models\File;
 use App\Models\User;
+use Illuminate\Bus\Queueable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Illuminate\Bus\Queueable;
+use Maatwebsite\Excel\Excel;
+
 
 
 class FileExport implements FromCollection, WithHeadings, ShouldQueue
@@ -17,6 +19,25 @@ class FileExport implements FromCollection, WithHeadings, ShouldQueue
     use Exportable, Queueable;
 
     protected $fileId;
+
+
+    /**
+     * It's required to define the fileName within
+     * the export class when making use of Responsable.
+     */
+    private $fileName = 'invoices.xlsx';
+
+    /**
+     * Optional Writer Type
+     */
+    private $writerType = Excel::XLSX;
+
+    /**
+     * Optional headers
+     */
+    private $headers = [
+        'Content-Type' => 'text/csv',
+    ];
 
     //initializing the required variable for this class
     public function __construct($fileId)

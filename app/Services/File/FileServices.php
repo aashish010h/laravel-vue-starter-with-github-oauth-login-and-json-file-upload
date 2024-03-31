@@ -67,6 +67,10 @@ class FileServices
         // dispatch(new ExportFileJob($fileId));
         // return redirect();
         //call the FileExport class object for exporting the json to excel
+
+        // (new FileExport($fileId))->queue('users.xlsx');
+
+        // return back()->withSuccess('Export started!');
         return  Excel::download(new FileExport($fileId), $filename, $this->exportFormat);
     }
 }

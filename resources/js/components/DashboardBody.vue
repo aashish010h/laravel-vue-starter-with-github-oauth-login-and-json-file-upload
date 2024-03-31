@@ -192,6 +192,7 @@ onMounted(() => {
                             class="mr-1"
                         />
                     </a>
+
                 </template>
             </Column>
         </DataTable>
