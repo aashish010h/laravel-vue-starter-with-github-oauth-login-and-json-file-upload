@@ -1,15 +1,12 @@
 <script setup>
-import Navbar from '../components/Navbar.vue'
-import DashboardBody from '../components/DashboardBody.vue';
-
-
+import Navbar from "../components/Navbar.vue";
+import DashboardBody from "../components/DashboardBody.vue";
 </script>
 <template>
     <div class="container">
-        <Navbar/>
-    <DashboardBody />
+        <Navbar />
+        <DashboardBody />
     </div>
-
 </template>
 <style>
 .p-button {
@@ -17,7 +14,6 @@ import DashboardBody from '../components/DashboardBody.vue';
     padding: 7px 12px;
     border: 1px solid rgb(147, 147, 143);
 }
-.p-button>span {
-
+.p-button > span {
 }
 </style>

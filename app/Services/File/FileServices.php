@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\FileExport;
+use App\Jobs\DownloadAfterExportJob;
 use App\Jobs\ExportFileJob;
 
 class FileServices
@@ -72,5 +73,18 @@ class FileServices
 
         // return back()->withSuccess('Export started!');
         return  Excel::download(new FileExport($fileId), $filename, $this->exportFormat);
+    }
+
+    public function exportWithQueue($fileId)
+    {
+        $filename = "file-" . date('d-m-Y') . "." . $this->fileExt;
+
+        $export =  (new FileExport($fileId))->store('users.xlsx');
+
+        $export->chain([
+            new DownloadAfterExportJob($fileId),
+        ]);
+
+        return back();
     }
 }

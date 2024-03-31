@@ -42,4 +42,10 @@ class FileController extends Controller
         //calling the method of export to excel from file service
         return $this->fileService->exportFile($fileId);
     }
+
+    public function exportUsingQueue($fileId)
+    {
+        //calling the method of export to excel from file service
+        return $this->fileService->exportWithQueue($fileId);
+    }
 }

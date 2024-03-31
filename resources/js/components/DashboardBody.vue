@@ -183,7 +183,7 @@ onMounted(() => {
                 headerStyle="min-width:12rem;"
             >
                 <template #body="slotProps">
-                    <a :href="`/export/${slotProps.data.id}`">
+                    <a :href="`/export/${slotProps.data.id}`" class="">
                         <Button
                             severity="secondary"
                             label="Export as excel"
@@ -192,6 +192,17 @@ onMounted(() => {
                             class="mr-1"
                         />
                     </a>
+
+
+                    <!-- <a :href="`/exportQueue/${slotProps.data.id}`" class="">
+                        <Button
+                            severity="secondary"
+                            label="Export as excel using Queue"
+                            size="small"
+                            icon="pi pi-file-excel"
+                            class="mr-1"
+                        />
+                    </a> -->
 
                 </template>
             </Column>
