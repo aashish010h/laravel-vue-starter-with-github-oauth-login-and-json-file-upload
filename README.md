@@ -20,6 +20,8 @@ composer up
 
 php artisan migrate
 
+php artisan storage:link
+
  npm install
 
  php artisan key:generate
