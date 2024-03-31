@@ -37,7 +37,7 @@ Axios.interceptors.response.use(
     function (error) {
         if (error.response && error.response.status === 401) {
             console.log("Unauthorized request. Redirecting to login...");
-            router.push("/login");
+            router.push("/");
         }
         return Promise.reject(error);
     }

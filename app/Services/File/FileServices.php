@@ -64,7 +64,8 @@ class FileServices
         $filename = "file-" . date('d-m-Y') . "." . $this->fileExt;
 
         //  (new FileExport($fileId))->queue('invoices.xlsx')->onQueue('exports');
-        // \dispatch(new ExportFileJob($fileId));
+        // dispatch(new ExportFileJob($fileId));
+        // return redirect();
         //call the FileExport class object for exporting the json to excel
         return  Excel::download(new FileExport($fileId), $filename, $this->exportFormat);
     }

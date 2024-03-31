@@ -44,6 +44,7 @@ class SocialiteController extends Controller
     // generate a personal access token for the authenticated user
     public function generateToken()
     {
+
         $user = Auth::user();
 
         // create a personal access token for the user for using in vue frontend for api calls using sanctum
