@@ -11,7 +11,7 @@
 
 ## Steps for running the projects 
 Laravel Version 10
-please run on virutal host  http://codewingassessment.test
+please run on virutal host  http://project.test or php artisan serve
 
 
 cp .env.example .env
